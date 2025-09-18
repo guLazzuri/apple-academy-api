@@ -3,7 +3,7 @@ FROM gradle:8.10-jdk17 AS builder
 WORKDIR /app
 
 # Copia o código fonte e faz o build
-COPY build.gradle* settings.gradle* ./
+RUN gradle bootJar --no-daemon && ls -l build/libs
 COPY src ./src
 
 # Etapa 2: imagem final
