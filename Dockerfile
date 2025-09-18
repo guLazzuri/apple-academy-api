@@ -3,8 +3,8 @@ FROM gradle:8.10-jdk17 AS builder
 WORKDIR /app
 
 # Copia o código fonte e faz o build
-COPY . .
-RUN gradle bootJar --no-daemon
+COPY build.gradle* settings.gradle* ./
+COPY src ./src
 
 # Etapa 2: imagem final
 FROM eclipse-temurin:17-jdk
