@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 # Etapa 2: imagem final
 FROM eclipse-temurin:21-jdk
